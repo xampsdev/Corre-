@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap");
+
+:root {
+  --font-titulos: "Space Grotesk", sans-serif;
+  --font-corpo: "Inter", sans-serif;
+
+  --bg: #0f1115;
+  --surface: #181c23;
+  --card: #232b36;
+
+  --primary: #32d4ff;
+  --secondary: #fc4c02;
+
+  --success: #2ecc71;
+  --warning: #f9c74f;
+  --danger: #ef4444;
+
+  --title: #ffffff;
+  --text: #cbd5e1;
+  --muted: #94a3b8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+h1 {
+  font-family: var(--font-titulos);
+}
+
+p {
+  font-family: var(--font-corpo);
+}
