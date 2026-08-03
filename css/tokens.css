@@ -1,0 +1,77 @@
+:root {
+  /* ==========================
+      COLORS
+  ========================== */
+
+  --bg: #131313;
+  --surface: #1c1b1b;
+  --surface-hover: #2a2a2a;
+  --card: #201f1f;
+
+  --text: #e5e2e1;
+  --text-muted: #c6c9ab;
+
+  --primary: #d2f000;
+  --primary-hover: #b8d300;
+
+  --secondary: #00eefc;
+
+  --border: #454932;
+  --border-light: #909378;
+
+  --success: #4caf50;
+  --warning: #ffb300;
+  --error: #ff5252;
+
+  /* ==========================
+      TYPOGRAPHY
+  ========================== */
+
+  --font-title: "Archivo Narrow", sans-serif;
+  --font-body: "Geist", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --fs-display: clamp(3rem, 6vw, 5rem);
+  --fs-title: 2rem;
+  --fs-subtitle: 1.25rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+
+  /* ==========================
+      SPACING
+  ========================== */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* ==========================
+      RADIUS
+  ========================== */
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* ==========================
+      EFFECTS
+  ========================== */
+
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+  --glow-primary: 0 0 24px rgba(210, 240, 0, 0.18);
+
+  --transition: 0.25s ease;
+
+  /* ==========================
+      LAYOUT
+  ========================== */
+
+  --container: 1400px;
+}

@@ -1,0 +1,31 @@
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 18px 36px;
+
+  font-family: var(--font-mono);
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--primary);
+
+  color: #111;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+
+  transform: translateY(-3px);
+
+  box-shadow: var(--glow-primary);
+}
