@@ -48,10 +48,26 @@
   <body>
     <div class="bg-grid"></div>
 
-    <header class="navbar">
-      <div class="container">
-        <a href="index.html" class="brand"> CORRE+ </a>
+    <header class="navbar" id="navbar">
+      <div class="brand">
+        <a href="index.html">CORRE+</a>
       </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#como-funciona">Como encontramos seu tênis ideal</a></li>
+          <li>
+            <a
+              href="https://github.com/xampsdev/Corre-"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main>
@@ -77,10 +93,31 @@
         </div>
 
         <div class="hero-image">
-          <img
-            src="imgs/home-shoes.webp"
-            alt="Corredor em análise biomecânica"
-          />
+          <img src="imgs/home-shoes.webp" alt="Corredor" />
+
+          <div class="scanner-line"></div>
+
+          <div class="hud">
+            <span class="hud-title"> ANALISANDO PERFIL </span>
+
+            <div class="progress">
+              <div class="progress-fill"></div>
+            </div>
+
+            <ul>
+              <li>✔ Peso</li>
+
+              <li>✔ Terreno</li>
+
+              <li>✔ Distância</li>
+
+              <li>✔ Ritmo</li>
+
+              <li>✔ Pisada</li>
+            </ul>
+
+            <span class="hud-status"> PERFIL DE CORRIDA DETECTADO </span>
+          </div>
         </div>
       </section>
     </main>
@@ -98,5 +135,6 @@
         </a>
       </div>
     </footer>
+    <script src="js/home.js"></script>
   </body>
 </html>

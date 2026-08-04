@@ -1,33 +1,139 @@
+/* ==========================================
+   NAVBAR
+========================================== */
+
 .navbar {
   position: sticky;
-
   top: 0;
-
   z-index: 1000;
 
-  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  background: rgba(19, 19, 19, 0.85);
+  width: 100%;
 
-  border-bottom: 1px solid var(--border);
+  padding: 22px 40px;
+
+  background: rgba(19, 19, 19, 0.72);
+
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  transition:
+    padding 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.navbar .container {
-  height: 80px;
+/* Estado após scroll */
 
+.navbar.scrolled {
+  padding: 14px 40px;
+
+  background: rgba(14, 14, 14, 0.94);
+
+  border-bottom: 1px solid rgba(210, 240, 0, 0.18);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* ============================== */
+
+.brand a {
+  color: var(--text);
+
+  font-family: var(--font-title);
+
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  letter-spacing: -0.04em;
+
+  transition: 0.3s;
+}
+
+.brand a:hover {
+  color: var(--primary);
+}
+
+/* ============================== */
+
+.nav-links {
   display: flex;
 
   align-items: center;
 
-  justify-content: space-between;
+  gap: 36px;
+
+  list-style: none;
 }
 
-.brand {
-  font-family: var(--font-title);
+.nav-links a {
+  position: relative;
 
-  font-size: 2.6rem;
+  color: var(--text-muted);
 
-  font-weight: 700;
+  font-size: 0.95rem;
 
-  letter-spacing: -2px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -8px;
+
+  width: 0;
+
+  height: 2px;
+
+  background: var(--primary);
+
+  transition: width 0.25s;
+}
+
+/* .nav-links a:hover::after {
+  width: 100%;
+} */
+
+/* ============================== */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 18px 20px;
+  }
+
+  .navbar.scrolled {
+    padding: 14px 20px;
+  }
+
+  .brand a {
+    font-size: 1.7rem;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
 }
