@@ -2,35 +2,37 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>CORRE+ | Encontre o tênis ideal para sua corrida</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
       name="description"
-      content="Descubra o tênis ideal para corrida através de uma análise baseada em biomecânica, terreno, distância e desempenho."
+      content="CORRE+ — encontre o tênis de corrida mais compatível com seu perfil, terreno, distância e desempenho."
     />
 
-    <!-- Google Fonts -->
+    <meta name="theme-color" content="#131313" />
 
+    <title>CORRE+ | Encontre o tênis ideal para sua corrida</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600;700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Geist:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
       rel="stylesheet"
     />
 
     <!-- Material Symbols -->
-
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL,wght@0..1,100..700"
       rel="stylesheet"
     />
 
-    <!-- Favicons -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon/favicon.ico" />
 
-    <link rel="icon" href="favicon/favicon.ico" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -40,101 +42,460 @@
     <link rel="manifest" href="favicon/site.webmanifest" />
 
     <!-- CSS -->
-
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/paginas/home.css" />
   </head>
 
   <body>
-    <div class="bg-grid"></div>
+    <!-- Background Grid -->
+    <div class="bg-grid-pattern" aria-hidden="true"></div>
 
-    <header class="navbar" id="navbar">
-      <div class="brand">
-        <a href="index.html">CORRE+</a>
-      </div>
+    <!-- NAVBAR -->
 
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#como-funciona">Como encontramos seu tênis ideal</a></li>
-          <li>
-            <a
-              href="https://github.com/xampsdev/Corre-"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <header class="navbar">
+
+  <a
+    href="index.html"
+    class="brand"
+    aria-label="CORRE+ - Página inicial"
+  >
+    CORRE+
+  </a>
+
+  <nav
+    class="main-navigation"
+    aria-label="Navegação principal"
+  >
+    <ul class="nav-links">
+
+      <li>
+        <a href="#sobre">
+          Sobre
+        </a>
+      </li>
+
+      <li>
+        <a href="#como-funciona">
+          Como encontramos seu tênis
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="https://github.com/xampsdev/Corre-"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+</header>
+
+    <!-- MAIN -->
 
     <main>
-      <section class="hero container">
-        <div class="hero-content">
-          <span class="hero-tag"> PERFORMANCE INTELLIGENCE </span>
+      <!-- HERO -->
 
-          <h1 class="hero-title">ENCONTRE O TÊNIS IDEAL PARA SUA CORRIDA</h1>
+      <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-container">
+          <div class="hero-text-col">
+            <span class="section-label"> PERFORMANCE INTELLIGENCE </span>
 
-          <p class="hero-subtitle">
-            Nossa análise combina biomecânica, terreno, distância, ritmo e
-            experiência para recomendar os modelos mais compatíveis com o seu
-            perfil.
-          </p>
+            <h1 id="hero-title" class="hero-title">
+              ENCONTRE O TÊNIS IDEAL PARA SUA CORRIDA
+            </h1>
 
-          <div class="hero-actions">
-            <a href="quiz.html" class="btn btn-primary">
-              Descubra seu tênis ideal
+            <p class="hero-subhead">
+              Nossa análise combina biomecânica, terreno, distância e desempenho
+              para recomendar os modelos mais compatíveis com o seu perfil.
+            </p>
 
-              <span class="material-symbols-outlined"> arrow_forward </span>
-            </a>
+            <div class="hero-actions">
+              <a href="#como-funciona" class="btn-primary">
+                DESCUBRA SEU TÊNIS IDEAL
+
+                <span class="material-symbols-outlined" aria-hidden="true">
+                  arrow_forward
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-img-col">
+            <div
+              class="hero-img"
+              role="img"
+              aria-label="Tênis de corrida representando o sistema CORRE+"
+            ></div>
           </div>
         </div>
+      </section>
 
-        <div class="hero-image">
-          <img src="imgs/home-shoes.webp" alt="Corredor" />
+      <!-- SOBRE -->
 
-          <div class="scanner-line"></div>
+      <section id="sobre" class="about-section" aria-labelledby="about-title">
+        <div class="section-container">
+          <div class="section-heading">
+            <span class="section-label"> SOBRE O CORRE+ </span>
 
-          <div class="hud">
-            <span class="hud-title"> ANALISANDO PERFIL </span>
+            <h2 id="about-title">
+              NÃO RECOMENDAMOS O TÊNIS MAIS CARO. RECOMENDAMOS O MAIS ADEQUADO.
+            </h2>
+          </div>
 
-            <div class="progress">
-              <div class="progress-fill"></div>
+          <div class="about-content">
+            <div class="about-intro">
+              <p class="about-highlight">
+                Escolher um tênis de corrida não deveria depender apenas de
+                marca, preço ou popularidade.
+              </p>
             </div>
 
-            <ul>
-              <li>✔ Peso</li>
+            <div class="about-text">
+              <p>
+                O CORRE+ foi criado para transformar informações técnicas sobre
+                tênis em recomendações mais relevantes para cada corredor.
+              </p>
 
-              <li>✔ Terreno</li>
+              <p>
+                O sistema considera características do corredor, objetivo,
+                terreno, distância, ritmo e especificações do calçado para
+                encontrar os modelos mais compatíveis.
+              </p>
 
-              <li>✔ Distância</li>
-
-              <li>✔ Ritmo</li>
-
-              <li>✔ Pisada</li>
-            </ul>
-
-            <span class="hud-status"> PERFIL DE CORRIDA DETECTADO </span>
+              <p>
+                Em vez de simplesmente apresentar uma lista de tênis, o CORRE+
+                explica por que determinado modelo combina com você — e por que
+                outros foram descartados.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <!-- COMO FUNCIONA -->
+
+      <section
+        id="como-funciona"
+        class="how-section"
+        aria-labelledby="how-title"
+      >
+        <div class="section-container">
+          <div class="section-heading">
+            <span class="section-label"> COMO ENCONTRAMOS SEU TÊNIS </span>
+
+            <h2 id="how-title">DA INFORMAÇÃO À RECOMENDAÇÃO</h2>
+
+            <p>
+              O CORRE+ transforma suas respostas em uma análise objetiva de
+              compatibilidade.
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <!-- STEP 01 -->
+
+            <article class="step-card">
+              <div class="step-number">01</div>
+
+              <div class="step-icon">
+                <span class="material-symbols-outlined" aria-hidden="true">
+                  person
+                </span>
+              </div>
+
+              <span class="step-label"> INPUT </span>
+
+              <h3>Informe seu perfil</h3>
+
+              <p>
+                Responda perguntas sobre peso corporal, ritmo, experiência,
+                distância, terreno e preferência de drop.
+              </p>
+            </article>
+
+            <!-- STEP 02 -->
+
+            <article class="step-card">
+              <div class="step-number">02</div>
+
+              <div class="step-icon">
+                <span class="material-symbols-outlined" aria-hidden="true">
+                  filter_alt
+                </span>
+              </div>
+
+              <span class="step-label"> FILTROS </span>
+
+              <h3>Eliminamos incompatibilidades</h3>
+
+              <p>
+                Modelos incompatíveis com terreno, orçamento ou características
+                críticas são removidos antes da pontuação.
+              </p>
+            </article>
+
+            <!-- STEP 03 -->
+
+            <article class="step-card">
+              <div class="step-number">03</div>
+
+              <div class="step-icon">
+                <span class="material-symbols-outlined" aria-hidden="true">
+                  analytics
+                </span>
+              </div>
+
+              <span class="step-label"> MATCH SCORE </span>
+
+              <h3>Calculamos a compatibilidade</h3>
+
+              <p>
+                Os modelos restantes recebem uma pontuação baseada nos critérios
+                relevantes para seu perfil.
+              </p>
+            </article>
+
+            <!-- STEP 04 -->
+
+            <article class="step-card">
+              <div class="step-number">04</div>
+
+              <div class="step-icon">
+                <span class="material-symbols-outlined" aria-hidden="true">
+                  directions_run
+                </span>
+              </div>
+
+              <span class="step-label"> RESULTADO </span>
+
+              <h3>Receba seus melhores matches</h3>
+
+              <p>
+                Você recebe os três modelos mais compatíveis e uma explicação
+                objetiva para cada recomendação.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+           ALGORITMO
+      = -->
+
+      <section class="algorithm-section" aria-labelledby="algorithm-title">
+        <div class="section-container">
+          <div class="algorithm-grid">
+            <div class="algorithm-heading">
+              <span class="section-label"> PERFORMANCE INTELLIGENCE </span>
+
+              <h2 id="algorithm-title">
+                UMA RECOMENDAÇÃO QUE PODE SER EXPLICADA.
+              </h2>
+
+              <p>
+                O CORRE+ utiliza regras determinísticas para avaliar a
+                compatibilidade entre corredor e calçado.
+              </p>
+            </div>
+
+            <div class="algorithm-flow">
+              <div class="flow-item">
+                <span> INPUT </span>
+
+                <strong> PERFIL </strong>
+              </div>
+
+              <div class="flow-line"></div>
+
+              <div class="flow-item">
+                <span> RULE ENGINE </span>
+
+                <strong> FILTROS </strong>
+              </div>
+
+              <div class="flow-line"></div>
+
+              <div class="flow-item">
+                <span> MATCH SCORE </span>
+
+                <strong> 95% </strong>
+              </div>
+
+              <div class="flow-line"></div>
+
+              <div class="flow-item">
+                <span> OUTPUT </span>
+
+                <strong> TOP 3 </strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+           PREVIEW DOS RESULTADOS
+       -->
+
+      <section class="preview-section" aria-labelledby="preview-title">
+        <div class="section-container">
+          <div class="section-heading">
+            <span class="section-label"> EXEMPLO DE RESULTADO </span>
+
+            <h2 id="preview-title">SEUS TÊNIS IDEAIS</h2>
+
+            <p>Uma prévia de como sua recomendação será apresentada.</p>
+          </div>
+
+          <div class="preview-grid">
+            <!-- RESULT 01 -->
+
+            <article class="shoe-preview-card featured">
+              <div class="shoe-rank">#01</div>
+
+              <div class="shoe-info">
+                <span class="shoe-category"> MATCH PRINCIPAL </span>
+
+                <h3>Superblast 2</h3>
+
+                <p>
+                  Exemplo de recomendação baseada em alto amortecimento,
+                  responsividade e distância.
+                </p>
+              </div>
+
+              <div class="match-score">
+                <span> COMPATIBILIDADE </span>
+
+                <strong> 95% </strong>
+              </div>
+            </article>
+
+            <!-- RESULT 02 -->
+
+            <article class="shoe-preview-card">
+              <div class="shoe-rank">#02</div>
+
+              <div class="shoe-info">
+                <span class="shoe-category"> ALTA COMPATIBILIDADE </span>
+
+                <h3>Corre Max</h3>
+
+                <p>
+                  Alternativa com características semelhantes ao perfil
+                  analisado.
+                </p>
+              </div>
+
+              <div class="match-score">
+                <span> COMPATIBILIDADE </span>
+
+                <strong> 91% </strong>
+              </div>
+            </article>
+
+            <!-- RESULT 03 -->
+
+            <article class="shoe-preview-card">
+              <div class="shoe-rank">#03</div>
+
+              <div class="shoe-info">
+                <span class="shoe-category"> BOA COMPATIBILIDADE </span>
+
+                <h3>Novablast</h3>
+
+                <p>
+                  Opção equilibrada para treinos de rodagem e diferentes
+                  distâncias.
+                </p>
+              </div>
+
+              <div class="match-score">
+                <span> COMPATIBILIDADE </span>
+
+                <strong> 89% </strong>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA-->
+
+      <section class="cta-section" aria-labelledby="cta-title">
+        <div class="cta-container">
+          <span class="section-label"> PRONTO PARA COMEÇAR? </span>
+
+          <h2 id="cta-title">ENCONTRE O TÊNIS IDEAL PARA SUA CORRIDA.</h2>
+
+          <p>
+            Responda algumas perguntas e descubra quais modelos combinam melhor
+            com você.
+          </p>
+
+          <a href="pages/quiz.html" class="btn-primary">
+            INICIAR ANÁLISE
+
+            <span class="material-symbols-outlined" aria-hidden="true">
+              arrow_forward
+            </span>
+          </a>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <p>© 2026 CORRE+. Todos os direitos reservados.</p>
+    <!-- FOOTER -->
 
-        <a
-          href="https://github.com/xampsdev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Desenvolvido por XAN
-        </a>
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a
+            href="index.html"
+            class="brand"
+            aria-label="CORRE+ - Página inicial"
+          >
+            CORRE+
+          </a>
+
+          <p>Performance Intelligence para corredores.</p>
+        </div>
+
+        <nav class="footer-links" aria-label="Navegação do rodapé">
+          <a href="#sobre"> Sobre </a>
+
+          <a href="#como-funciona"> Como encontramos seu tênis </a>
+
+          <a
+            href="https://github.com/xampsdev/Corre-"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span> © 2026 CORRE+. Todos os direitos reservados. </span>
+
+        <span>
+          <a
+            href="https://github.com/xampsdev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Desenvolvido por XAN
+          </a>
+        </span>
       </div>
     </footer>
+
+    <!-- JavaScript -->
     <script src="js/home.js"></script>
   </body>
 </html>

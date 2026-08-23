@@ -1,7 +1,5 @@
 :root {
-  /* ==========================
-      COLORS
-  ========================== */
+  /* COLORS*/
 
   --bg: #131313;
   --surface: #1c1b1b;
@@ -23,13 +21,31 @@
   --warning: #ffb300;
   --error: #ff5252;
 
-  /* ==========================
-      TYPOGRAPHY
-  ========================== */
+  /* Aliases usados pelos componentes e páginas */
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary);
+  --color-primary-fixed-dim: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-on-primary-fixed: var(--bg);
+  --color-on-surface-variant: var(--text-muted);
+  --color-surface-container: var(--surface-hover);
+  --color-surface-container-low: var(--surface);
+  --color-surface-container-lowest: var(--bg);
+  --color-outline: var(--border-light);
+  --color-outline-variant: var(--border);
+
+  /* TYPOGRAPHY*/
 
   --font-title: "Archivo Narrow", sans-serif;
   --font-body: "Geist", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+
+  --font-display-lg: var(--font-title);
+  --font-headline-md: var(--font-title);
+  --font-body-lg: var(--font-body);
+  --font-body-md: var(--font-body);
+  --font-data-label: var(--font-mono);
+  --font-data-value: var(--font-mono);
 
   --fs-display: clamp(3rem, 6vw, 5rem);
   --fs-title: 2rem;
@@ -37,9 +53,7 @@
   --fs-body: 1rem;
   --fs-small: 0.875rem;
 
-  /* ==========================
-      SPACING
-  ========================== */
+  /* SPACING*/
 
   --space-1: 4px;
   --space-2: 8px;
@@ -51,17 +65,17 @@
   --space-8: 64px;
   --space-9: 96px;
 
-  /* ==========================
-      RADIUS
-  ========================== */
+  --spacing-margin-desktop: 40px;
+  --spacing-margin-tablet: 24px;
+  --spacing-margin-mobile: 20px;
+
+  /* RADIUS*/
 
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
 
-  /* ==========================
-      EFFECTS
-  ========================== */
+  /* EFFECTS*/
 
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.35);
 
@@ -69,9 +83,7 @@
 
   --transition: 0.25s ease;
 
-  /* ==========================
-      LAYOUT
-  ========================== */
+  /* LAYOUT*/
 
   --container: 1400px;
 }

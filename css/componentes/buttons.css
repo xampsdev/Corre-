@@ -1,31 +1,119 @@
-.btn {
+/* 
+   CORRE+ — BUTTONS
+    */
+
+.btn-primary,
+.btn-secondary {
   display: inline-flex;
-
   align-items: center;
-
+  justify-content: center;
   gap: 12px;
 
-  padding: 18px 36px;
+  min-height: 56px;
+  padding: 16px 28px;
 
-  font-family: var(--font-mono);
+  border-radius: 0;
 
+  font-family: var(--font-data-label);
+  font-size: 13px;
   font-weight: 700;
+  line-height: 1;
 
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 
-  transition: var(--transition);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
-.btn-primary {
-  background: var(--primary);
+/* 
+   PRIMARY
+    */
 
-  color: #111;
+.btn-primary {
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary-fixed);
+
+  border: 1px solid var(--color-primary-container);
 }
 
 .btn-primary:hover {
-  background: var(--primary-hover);
+  background-color: var(--color-primary-fixed-dim);
+  border-color: var(--color-primary-fixed-dim);
 
-  transform: translateY(-3px);
+  box-shadow: 0 0 24px rgba(210, 240, 0, 0.18);
 
-  box-shadow: var(--glow-primary);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 4px;
+}
+
+/* 
+   MATERIAL SYMBOLS
+    */
+
+.btn-primary .material-symbols-outlined,
+.btn-secondary .material-symbols-outlined {
+  font-size: 20px;
+  line-height: 1;
+
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:hover .material-symbols-outlined {
+  transform: translateX(4px);
+}
+
+/* 
+   SECONDARY / GHOST
+    */
+
+.btn-secondary {
+  background-color: transparent;
+
+  color: var(--color-secondary);
+
+  border: 1px solid var(--color-secondary);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(0, 240, 255, 0.08);
+
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.08);
+
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--color-primary-container);
+  outline-offset: 4px;
+}
+
+/* 
+   MOBILE
+    */
+
+@media (max-width: 767px) {
+  .btn-primary,
+  .btn-secondary {
+    min-height: 54px;
+    padding: 15px 22px;
+
+    font-size: 12px;
+  }
 }

@@ -1,31 +1,34 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
 body {
-  background: var(--bg);
+  min-height: 100vh;
+
+  background-color: var(--bg);
   color: var(--text);
 
   font-family: var(--font-body);
-
-  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.5;
 
   overflow-x: hidden;
 }
 
-.bg-grid {
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-
-  background-size: 32px 32px;
-
-  z-index: -1;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.container {
-  width: min(100% - 40px, var(--container));
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
 
-  margin: auto;
+button {
+  border: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
 }
