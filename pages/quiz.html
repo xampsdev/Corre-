@@ -4,6 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz</title>
+
+    <link rel="stylesheet" href="../css/main.css" />
   </head>
-  <body></body>
+  <body>
+    <main class="quiz-main">
+      <div class="quiz-card">
+        <!-- Barra de Progresso -->
+        <div class="quiz-progress">
+          <span id="progress-text">Pergunta 1 de 3</span>
+          <div class="progress-bar"><div id="progress-fill"></div></div>
+        </div>
+
+        <!-- Caixa da Pergunta -->
+        <div id="question-container">
+          <h2 id="question-title">
+            Qual é o seu objetivo principal na corrida?
+          </h2>
+          <div id="options-grid" class="options-grid">
+            <!-- Os botões das opções serão injetados via JavaScript -->
+          </div>
+        </div>
+
+        <!-- Caixa de Resultado (Oculta inicialmente) -->
+        <div
+          id="result-container"
+          class="result-container"
+          style="display: none"
+        >
+          <h2>Perfil Identificado!</h2>
+          <p id="result-description">Carregando recomendação...</p>
+          <a href="../index.html" class="btn-primary">Voltar para Home</a>
+        </div>
+      </div>
+    </main>
+
+    <script src="../js/quiz.js"></script>
+  </body>
 </html>
