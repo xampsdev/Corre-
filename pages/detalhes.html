@@ -1,9 +1,118 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalhes</title>
+    <meta
+      name="description"
+      content="CORRE+ — Ficha técnica e análise biomecânica do calçado."
+    />
+    <meta name="theme-color" content="#131313" />
+    <title>CORRE+ | Detalhes do Modelo</title>
+
+    <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Geist:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL,wght@0..1,100..700"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../css/main.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="bg-grid-pattern" aria-hidden="true"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <a href="../index.html" class="brand" aria-label="CORRE+ - Página inicial"
+        >CORRE+</a
+      >
+      <nav class="main-navigation" aria-label="Navegação principal">
+        <ul class="nav-links">
+          <li><a href="../index.html#sobre">Sobre</a></li>
+          <li>
+            <a href="../index.html#como-funciona">Como encontramos seu tênis</a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/xampsdev/Corre-"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN DETALHES -->
+    <main class="details-main">
+      <div class="details-container">
+        <!-- Navegação de Retorno -->
+        <nav class="details-breadcrumbs" aria-label="Navegação secundária">
+          <a href="resultado.html" class="btn-back">
+            <span class="material-symbols-outlined" aria-hidden="true"
+              >arrow_back</span
+            >
+            VOLTAR AOS RESULTADOS
+          </a>
+        </nav>
+
+        <section id="details-content" class="details-layout" aria-live="polite">
+          <!-- Conteúdo gerado dinamicamente via JS -->
+          <div class="details-loading">
+            <h1 class="details-title">CARREGANDO ESPECIFICAÇÕES TÉCNICAS...</h1>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a
+            href="../index.html"
+            class="brand"
+            aria-label="CORRE+ - Página inicial"
+            >CORRE+</a
+          >
+          <p>Performance Intelligence para corredores.</p>
+        </div>
+        <!-- <nav class="footer-links" aria-label="Navegação do rodapé">
+          <a href="../index.html#sobre">Sobre</a>
+          <a href="../index.html#como-funciona">Como encontramos seu tênis</a>
+          <a
+            href="https://github.com/xampsdev/Corre-"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </nav> -->
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CORRE+. Todos os direitos reservados.</span>
+        <span>
+          <a
+            href="https://github.com/xampsdev"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Desenvolvido por XAN</a
+          >
+        </span>
+      </div>
+    </footer>
+
+    <script type="module" src="../js/detalhes.js"></script>
+  </body>
 </html>

@@ -1,0 +1,207 @@
+/* ==========================================
+   COMPARAÇÃO PAGE STYLES - CORRE+
+   ========================================== */
+
+.compare-main {
+  min-height: calc(100vh - 180px);
+  padding: var(--space-6) var(--spacing-margin-mobile);
+}
+
+.compare-container {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.compare-breadcrumbs {
+  margin-bottom: var(--space-5);
+}
+
+.compare-header {
+  margin-bottom: var(--space-6);
+}
+
+.compare-title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--text);
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.compare-subhead {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+/* Barra de Seleção */
+.compare-selectors-bar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.selector-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.selector-label {
+  font-family: var(--font-data-label);
+  font-size: var(--fs-small);
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.compare-select {
+  font-family: var(--font-mono);
+  font-size: var(--fs-body);
+  color: var(--text);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition);
+  /* Sem border-radius */
+}
+
+.compare-select:focus {
+  border-color: var(--primary);
+}
+
+/* Matriz de Comparação */
+.compare-matrix-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  box-shadow: var(--shadow-lg);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 600px;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--border);
+}
+
+/* Cabeçalho da Tabela com as Imagens dos Tênis */
+.compare-table thead th {
+  background-color: var(--surface);
+  vertical-align: top;
+  width: 40%;
+}
+
+.compare-table thead th:first-child {
+  width: 20%;
+  font-family: var(--font-data-label);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.compare-card-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.compare-shoe-img {
+  max-width: 140px;
+  max-height: 90px;
+  object-fit: contain;
+}
+
+.compare-shoe-brand {
+  font-family: var(--font-data-label);
+  font-size: var(--fs-small);
+  color: var(--secondary);
+  text-transform: uppercase;
+  display: block;
+}
+
+.compare-shoe-title {
+  font-family: var(--font-title);
+  font-size: var(--fs-title);
+  color: var(--text);
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-top: var(--space-1);
+}
+
+/* Linhas e Células */
+.metric-row-header {
+  font-family: var(--font-data-label);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  background-color: var(--surface);
+  white-space: nowrap;
+}
+
+.metric-cell {
+  font-family: var(--font-mono);
+  font-size: var(--fs-body);
+  color: var(--text);
+}
+
+.metric-highlight {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.text-cell {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Ações ao fim de cada coluna */
+.compare-table tfoot td {
+  background-color: var(--surface);
+  text-align: center;
+}
+
+.btn-table-action {
+  font-family: var(--font-title);
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--primary);
+  color: var(--bg);
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color var(--transition);
+}
+
+.btn-table-action:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .compare-main {
+    padding: var(--space-8) var(--spacing-margin-desktop);
+  }
+
+  .compare-selectors-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+}

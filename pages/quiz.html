@@ -1,44 +1,141 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz</title>
+    <meta
+      name="description"
+      content="CORRE+ — Análise determinística para recomendação de tênis."
+    />
+    <meta name="theme-color" content="#131313" />
+    <title>CORRE+ | Análise de Perfil</title>
 
+    <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Geist:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL,wght@0..1,100..700"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Global -->
     <link rel="stylesheet" href="../css/main.css" />
   </head>
   <body>
-    <main class="quiz-main">
-      <div class="quiz-card">
-        <!-- Barra de Progresso -->
-        <div class="quiz-progress">
-          <span id="progress-text">Pergunta 1 de 3</span>
-          <div class="progress-bar"><div id="progress-fill"></div></div>
-        </div>
+    <div class="bg-grid-pattern" aria-hidden="true"></div>
 
-        <!-- Caixa da Pergunta -->
-        <div id="question-container">
-          <h2 id="question-title">
-            Qual é o seu objetivo principal na corrida?
-          </h2>
-          <div id="options-grid" class="options-grid">
-            <!-- Os botões das opções serão injetados via JavaScript -->
+    <!-- NAVBAR (Padrão Home) -->
+    <header class="navbar">
+      <a href="../index.html" class="brand" aria-label="CORRE+ - Página inicial"
+        >CORRE+</a
+      >
+      <nav class="main-navigation" aria-label="Navegação principal">
+        <ul class="nav-links">
+          <li><a href="../index.html#sobre">Sobre</a></li>
+          <li>
+            <a href="../index.html#como-funciona">Como encontramos seu tênis</a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/xampsdev/Corre-"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ÁREA DO QUIZ -->
+    <main class="quiz-main-section">
+      <div class="quiz-layout-container">
+        <header class="quiz-status-header">
+          <div class="status-meta">
+            <span class="section-label">PERFORMANCE INTELLIGENCE</span>
+            <span id="quiz-step-counter" class="quiz-step-counter"
+              >ETAPA 01 / 06</span
+            >
           </div>
-        </div>
+          <div class="quiz-progress-track">
+            <div id="quiz-progress-bar" class="quiz-progress-fill"></div>
+          </div>
+        </header>
 
-        <!-- Caixa de Resultado (Oculta inicialmente) -->
-        <div
-          id="result-container"
-          class="result-container"
-          style="display: none"
-        >
-          <h2>Perfil Identificado!</h2>
-          <p id="result-description">Carregando recomendação...</p>
-          <a href="../index.html" class="btn-primary">Voltar para Home</a>
-        </div>
+        <section id="question-card" class="quiz-card" aria-live="polite">
+          <span id="question-number-badge" class="question-number-badge"
+            >01</span
+          >
+          <h1 id="question-title" class="quiz-question-title">
+            Carregando pergunta...
+          </h1>
+          <p id="question-subtitle" class="quiz-question-subtitle"></p>
+
+          <div id="quiz-options-group" class="quiz-options-group">
+            <!-- Opções inseridas dinamicamente via JS -->
+          </div>
+
+          <footer class="quiz-card-footer">
+            <button
+              id="btn-quiz-prev"
+              class="btn-quiz-nav"
+              type="button"
+              disabled
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >arrow_back</span
+              >
+              ANTERIOR
+            </button>
+          </footer>
+        </section>
       </div>
     </main>
 
-    <script src="../js/quiz.js"></script>
+    <!-- FOOTER (Padrão Home) -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a
+            href="../index.html"
+            class="brand"
+            aria-label="CORRE+ - Página inicial"
+            >CORRE+</a
+          >
+          <p>Performance Intelligence para corredores.</p>
+        </div>
+        <!-- <nav class="footer-links" aria-label="Navegação do rodapé">
+          <a href="../index.html#sobre">Sobre</a>
+          <a href="../index.html#como-funciona">Como encontramos seu tênis</a>
+          <a
+            href="https://github.com/xampsdev/Corre-"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </nav> -->
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CORRE+. Todos os direitos reservados.</span>
+        <span>
+          <a
+            href="https://github.com/xampsdev"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Desenvolvido por XAN</a
+          >
+        </span>
+      </div>
+    </footer>
+
+    <script type="module" src="../js/quiz.js"></script>
   </body>
 </html>

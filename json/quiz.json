@@ -1,0 +1,89 @@
+[
+  {
+    "id": "terreno",
+    "numero": "01",
+    "titulo": "Em qual terreno você corre com mais frequência?",
+    "descricao": "Filtro crítico para tração, durabilidade do solado e aderência.",
+    "opcoes": [
+      { "label": "Asfalto / Rua", "valor": "asfalto" },
+      { "label": "Esteira / Pista Sintética", "valor": "esteira" },
+      { "label": "Trilha / Terra / Cascalho", "valor": "trilha" },
+      { "label": "Misto (Alterno asfalto e parques)", "valor": "misto" }
+    ]
+  },
+  {
+    "id": "distancia",
+    "numero": "02",
+    "titulo": "Qual é a sua distância alvo principal?",
+    "descricao": "Define o volume de espuma e proteção contra fadiga muscular.",
+    "opcoes": [
+      { "label": "5 km a 10 km", "valor": "10k" },
+      { "label": "Meia Maratona (21 km)", "valor": "21k" },
+      { "label": "Maratona (42 km) ou superior", "valor": "42k" },
+      { "label": "Rodagens diárias e treinos livres", "valor": "rodagem" }
+    ]
+  },
+  {
+    "id": "ritmo",
+    "numero": "03",
+    "titulo": "Qual é a sua faixa de ritmo (Pace médio)?",
+    "descricao": "Determina o equilíbrio entre peso do tênis e retorno de energia.",
+    "opcoes": [
+      { "label": "Rápido (Abaixo de 4:30 min/km)", "valor": "rapido" },
+      { "label": "Moderado (Entre 4:31 e 5:45 min/km)", "valor": "moderado" },
+      {
+        "label": "Ritmo Leve / Confortável (Acima de 5:45 min/km)",
+        "valor": "leve"
+      }
+    ]
+  },
+  {
+    "id": "experiencia",
+    "numero": "04",
+    "titulo": "Qual seu nível de experiência na corrida?",
+    "descricao": "Indica a necessidade de suporte estrutural vs agressividade do modelo.",
+    "opcoes": [
+      {
+        "label": "Iniciante (Comecei recentemente ou até 1 ano)",
+        "valor": "iniciante"
+      },
+      {
+        "label": "Intermediário (Treino regular com planilha)",
+        "valor": "intermediario"
+      },
+      {
+        "label": "Avançado (Busca constante por desempenho/recordes)",
+        "valor": "avancado"
+      }
+    ]
+  },
+  {
+    "id": "peso_corredor",
+    "numero": "05",
+    "titulo": "Qual a sua faixa de peso corporal?",
+    "descricao": "Calcula a exigência sobre a densidade do composto da entressola.",
+    "opcoes": [
+      { "label": "Leve (Até 65 kg)", "valor": "leve" },
+      { "label": "Médio (De 66 kg a 80 kg)", "valor": "medio" },
+      { "label": "Pesado (Acima de 80 kg)", "valor": "pesado" }
+    ]
+  },
+  {
+    "id": "drop",
+    "numero": "06",
+    "titulo": "Qual sua preferência de Drop (diferença calcanhar/ponta)?",
+    "descricao": "Influencia diretamente no padrão de aterrissagem da pisada.",
+    "opcoes": [
+      { "label": "Drop Baixo (0 a 4 mm - Foco em antepé)", "valor": "baixo" },
+      {
+        "label": "Drop Padrão/Médio (6 a 10 mm - Mais versátil)",
+        "valor": "medio"
+      },
+      {
+        "label": "Drop Alto (10 mm ou mais - Foco em calcanhar)",
+        "valor": "alto"
+      },
+      { "label": "Indiferente / Não tenho preferência", "valor": "indiferente" }
+    ]
+  }
+]

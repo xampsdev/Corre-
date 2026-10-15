@@ -1,99 +1,153 @@
-const quizData = [
-  {
-    pergunta: "Qual é o seu foco principal no momento?",
-    opcoes: [
-      { texto: "Provas de Velocidade / 5k / 10k", perfil: "velocidade" },
-      { texto: "Longões e Meia Maratona / Maratona", perfil: "amortecimento" },
-      { texto: "Rodagens diárias e treinos leves", perfil: "treino" },
-      { texto: "Trilhas e terrenos mistos", perfil: "trail" },
-    ],
-  },
-  {
-    pergunta: "Como você prefere a sensação do amortecimento?",
-    opcoes: [
-      {
-        texto: "Firme e responsivo (mais retorno de energia)",
-        perfil: "velocidade",
-      },
-      {
-        texto: "Super macio (máximo conforto para as articulações)",
-        perfil: "amortecimento",
-      },
-      { texto: "Equilibrado (versátil para tudo)", perfil: "treino" },
-      { texto: "Estável com foco em suporte", perfil: "trail" },
-    ],
-  },
-];
+const DOM = {
+  stepCounter: document.getElementById("quiz-step-counter"),
+  progressBar: document.getElementById("quiz-progress-bar"),
+  numberBadge: document.getElementById("question-number-badge"),
+  title: document.getElementById("question-title"),
+  subtitle: document.getElementById("question-subtitle"),
+  optionsGroup: document.getElementById("quiz-options-group"),
+  btnPrev: document.getElementById("btn-quiz-prev"),
+};
 
-let currentQuestion = 0;
-let userAnswers = { velocidade: 0, amortecimento: 0, treino: 0, trail: 0 };
+let questions = [];
+let currentStep = 0;
+const userAnswers = {};
 
-const questionTitle = document.getElementById("question-title");
-const optionsGrid = document.getElementById("options-grid");
-const progressText = document.getElementById("progress-text");
-const progressFill = document.getElementById("progress-fill");
-const questionContainer = document.getElementById("question-container");
-const resultContainer = document.getElementById("result-container");
-const resultDescription = document.getElementById("result-description");
-
-function loadQuestion() {
-  resetState();
-  const currentQuizData = quizData[currentQuestion];
-
-  questionTitle.innerText = currentQuizData.pergunta;
-  progressText.innerText = `Pergunta ${currentQuestion + 1} de ${quizData.length}`;
-
-  // Atualiza barra de progresso
-  const progressPercentage = ((currentQuestion + 1) / quizData.length) * 100;
-  progressFill.style.width = `${progressPercentage}%`;
-
-  currentQuizData.opcoes.forEach((opcao) => {
-    const button = document.createElement("button");
-    button.innerText = opcao.texto;
-    button.classList.add("quiz-option-btn");
-    button.onclick = () => selectOption(opcao.perfil);
-    optionsGrid.appendChild(button);
-  });
-}
-
-function resetState() {
-  optionsGrid.innerHTML = "";
-}
-
-function selectOption(perfil) {
-  userAnswers[perfil]++;
-  currentQuestion++;
-
-  if (currentQuestion < quizData.length) {
-    loadQuestion();
-  } else {
-    showResult();
+async function loadData() {
+  try {
+    const res = await fetch("../json/quiz.json");
+    if (!res.ok) throw new Error(`Status: ${res.status}`);
+    questions = await res.json();
+    renderCurrentQuestion();
+  } catch (error) {
+    DOM.title.textContent = "Erro ao carregar perguntas da análise.";
+    console.error(error);
   }
 }
 
-function showResult() {
-  questionContainer.style.display = "none";
-  resultContainer.style.display = "block";
-  progressText.parentElement.style.display = "none";
+function renderCurrentQuestion() {
+  const q = questions[currentStep];
+  const total = questions.length;
 
-  // Acha qual perfil teve mais votos
-  const bestProfile = Object.keys(userAnswers).reduce((a, b) =>
-    userAnswers[a] > userAnswers[b] ? a : b,
-  );
+  DOM.stepCounter.textContent = `ETAPA ${String(currentStep + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+  DOM.progressBar.style.width = `${((currentStep + 1) / total) * 100}%`;
+  DOM.numberBadge.textContent = q.numero;
+  DOM.title.textContent = q.titulo;
+  DOM.subtitle.textContent = q.descricao;
 
-  const recommendations = {
-    velocidade:
-      "O seu estilo pede tênis com placas de fibra ou espumas altamente responsivas (Ex: Linha de Performance/Fast).",
-    amortecimento:
-      "O seu estilo pede tênis com alto volume de espuma, focado em absorção de impacto e conforto em longas distâncias.",
-    treino:
-      "O seu estilo pede um tênis coringa, durável e versátil para encarar qualquer tipo de rodagem na semana.",
-    trail:
-      "O seu estilo pede tênis com solado tratorado e maior aderência para encarar terra, lama e pedras.",
-  };
+  DOM.btnPrev.disabled = currentStep === 0;
+  DOM.optionsGroup.innerHTML = "";
 
-  resultDescription.innerText = recommendations[bestProfile];
+  q.opcoes.forEach((opcao) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "quiz-option-button";
+    btn.innerHTML = `
+      <span>${opcao.label}</span>
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+    `;
+    btn.addEventListener("click", () => handleSelection(q.id, opcao.valor));
+    DOM.optionsGroup.appendChild(btn);
+  });
 }
 
-// Inicia o quiz ao carregar a página
-loadQuestion();
+function handleSelection(questionId, value) {
+  userAnswers[questionId] = value;
+  currentStep++;
+
+  if (currentStep < questions.length) {
+    renderCurrentQuestion();
+  } else {
+    finishQuizAndCalculate();
+  }
+}
+
+DOM.btnPrev.addEventListener("click", () => {
+  if (currentStep > 0) {
+    currentStep--;
+    renderCurrentQuestion();
+  }
+});
+
+async function finishQuizAndCalculate() {
+  DOM.title.textContent = "Processando compatibilidade determinística...";
+  DOM.subtitle.textContent =
+    "Eliminando incompatibilidades e calculando Match Scores.";
+  DOM.optionsGroup.innerHTML = "";
+
+  try {
+    const res = await fetch("../json/shoes.json");
+    const shoes = await res.json();
+
+    // RULE ENGINE DETERMINÍSTICA
+    // 1. Filtragem de Incompatibilidade Crítica
+    const compativeis = shoes.filter((shoe) => {
+      // Se usuário corre em trilha e o tênis não atende trilha
+      if (
+        userAnswers.terreno === "trilha" &&
+        !shoe.terrenos.includes("trilha")
+      ) {
+        return false;
+      }
+      return true;
+    });
+
+    // 2. Pontuação e Match Score (%)
+    const scoredShoes = compativeis.map((shoe) => {
+      let score = 50; // Base inicial
+
+      // Terreno
+      if (
+        shoe.terrenos.includes(userAnswers.terreno) ||
+        shoe.terrenos.includes("misto")
+      )
+        score += 15;
+
+      // Distância Alvo
+      if (shoe.distancias.includes(userAnswers.distancia)) score += 15;
+
+      // Ritmo / Pace
+      if (shoe.ritmos.includes(userAnswers.ritmo)) score += 10;
+
+      // Amortecimento x Peso
+      if (
+        userAnswers.peso_corredor === "pesado" &&
+        shoe.amortecimento === "maximo"
+      )
+        score += 5;
+      if (userAnswers.peso_corredor === "leve" && shoe.peso_g < 260) score += 5;
+
+      // Drop
+      if (userAnswers.drop === "baixo" && shoe.drop_mm <= 4) score += 5;
+      if (
+        userAnswers.drop === "medio" &&
+        shoe.drop_mm >= 5 &&
+        shoe.drop_mm <= 8
+      )
+        score += 5;
+      if (userAnswers.drop === "alto" && shoe.drop_mm > 8) score += 5;
+
+      const matchPercent = Math.min(score, 98); // Teto realista determinístico
+
+      return {
+        ...shoe,
+        matchScore: matchPercent,
+      };
+    });
+
+    // 3. Ordenação decrescente de Match
+    scoredShoes.sort((a, b) => b.matchScore - a.matchScore);
+
+    // 4. Salva Top 3 e Perfil no sessionStorage
+    const top3 = scoredShoes.slice(0, 3);
+    sessionStorage.setItem("corre_user_profile", JSON.stringify(userAnswers));
+    sessionStorage.setItem("corre_results", JSON.stringify(top3));
+
+    // 5. Redirecionamento para a página de resultado
+    window.location.href = "resultado.html";
+  } catch (err) {
+    console.error("Falha ao calcular compatibilidade:", err);
+    DOM.title.textContent = "Erro ao processar recomendações.";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadData);

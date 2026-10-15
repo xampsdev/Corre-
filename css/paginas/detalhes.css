@@ -1,0 +1,207 @@
+/* ==========================================
+   DETALHES PAGE STYLES - CORRE+
+   ========================================== */
+
+.details-main {
+  min-height: calc(100vh - 180px);
+  padding: var(--space-6) var(--spacing-margin-mobile);
+}
+
+.details-container {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.details-breadcrumbs {
+  margin-bottom: var(--space-5);
+}
+
+.btn-back {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: color var(--transition);
+}
+
+.btn-back:hover {
+  color: var(--primary);
+}
+
+/* Layout dos Detalhes */
+.details-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Coluna Visual (Imagem do Calçado) */
+.details-visual-col {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  padding: var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  min-height: 280px;
+}
+
+.details-visual-col::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--primary);
+}
+
+.details-image {
+  max-width: 90%;
+  max-height: 260px;
+  object-fit: contain;
+}
+
+/* Coluna de Informações e Dados Técnicos */
+.details-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.details-meta-header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-4);
+}
+
+.details-brand-badge {
+  font-family: var(--font-data-label);
+  font-size: var(--fs-small);
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.details-title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--text);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.details-price-badge {
+  font-family: var(--font-mono);
+  font-size: var(--fs-subtitle);
+  color: var(--primary);
+  margin-top: var(--space-2);
+  display: block;
+}
+
+.details-description-block {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  padding: var(--space-5);
+}
+
+.details-section-label {
+  font-family: var(--font-data-label);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.details-description {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Grid de Especificações Biomecânicas */
+.specs-technical-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+
+.spec-cell {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.spec-cell-label {
+  font-family: var(--font-data-label);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.spec-cell-value {
+  font-family: var(--font-mono);
+  font-size: var(--fs-subtitle);
+  color: var(--text);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.spec-cell-sub {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Tags do Calçado */
+.details-tags-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag-badge {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  background-color: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: var(--space-1) var(--space-3);
+  text-transform: uppercase;
+}
+
+/* Desktop Responsivo */
+@media (min-width: 992px) {
+  .details-main {
+    padding: var(--space-8) var(--spacing-margin-desktop);
+  }
+
+  .details-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .details-visual-col {
+    min-height: 480px;
+    position: sticky;
+    top: 100px;
+  }
+
+  .details-image {
+    max-height: 380px;
+  }
+}

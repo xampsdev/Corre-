@@ -1,0 +1,268 @@
+/* ==========================================
+   RESULTADOS PAGE STYLES - CORRE+
+   ========================================== */
+
+.results-main {
+  min-height: calc(100vh - 180px);
+  padding: var(--space-6) var(--spacing-margin-mobile);
+}
+
+.results-container {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.results-heading {
+  margin-bottom: var(--space-7);
+}
+
+.results-title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--text);
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.results-subhead {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+/* Grid de Resultados */
+.results-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+}
+
+/* Card do Tênis */
+.result-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transition: border-color var(--transition);
+}
+
+.result-card.featured {
+  border-color: var(--primary);
+  box-shadow: var(--glow-primary);
+}
+
+.result-card.featured::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--primary);
+}
+
+/* Topo do Card */
+.card-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-4);
+}
+
+.result-rank {
+  font-family: var(--font-mono);
+  font-size: var(--fs-subtitle);
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.result-card.featured .result-rank {
+  color: var(--primary);
+}
+
+.match-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.match-badge-label {
+  font-family: var(--font-data-label);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.match-badge-value {
+  font-family: var(--font-data-value);
+  font-size: var(--fs-title);
+  color: var(--primary);
+  line-height: 1;
+}
+
+/* Container da Imagem */
+.shoe-image-wrapper {
+  width: 100%;
+  height: 200px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  overflow: hidden;
+}
+
+.shoe-image {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  transition: transform var(--transition);
+}
+
+.result-card:hover .shoe-image {
+  transform: scale(1.05);
+}
+
+/* Textos e Dados Técnicos */
+.result-category-label {
+  display: block;
+  font-family: var(--font-data-label);
+  font-size: var(--fs-small);
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+.result-shoe-name {
+  font-family: var(--font-title);
+  font-size: var(--fs-title);
+  color: var(--text);
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.result-specs-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-3);
+}
+
+.spec-item {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.spec-item strong {
+  color: var(--text);
+}
+
+.result-description {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-5);
+  flex-grow: 1;
+}
+
+/* Ações */
+.card-actions-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.btn-card-details {
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--primary);
+  color: var(--bg);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: background-color var(--transition);
+}
+
+.btn-card-details:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-card-compare {
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: var(--space-3) var(--space-4);
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition:
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.btn-card-compare:hover {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+.results-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+.btn-secondary-action {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: var(--space-3) var(--space-5);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition:
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.btn-secondary-action:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Layout Desktop em 3 Colunas */
+@media (min-width: 992px) {
+  .results-main {
+    padding: var(--space-8) var(--spacing-margin-desktop);
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+}
