@@ -69,9 +69,39 @@
           </header>
 
           <!-- Grid Dinâmico do Top 3 -->
-          <div id="results-grid" class="results-grid" aria-live="polite">
-            <!-- Inserido dinamicamente via resultado.js -->
-          </div>
+          <div id="results-grid" class="results-grid" aria-live="polite"></div>
+
+          <!-- ZONA DE DESCARTE (Transparência nos Filtros) -->
+          <section class="discarded-section">
+            <details class="discarded-accordion">
+              <summary class="discarded-summary">
+                <span
+                  class="material-symbols-outlined icon-filter"
+                  aria-hidden="true"
+                  >filter_list_off</span
+                >
+                <span
+                  >MODELOS DESCARTADOS NA ANÁLISE (<span id="discarded-count"
+                    >0</span
+                  >)</span
+                >
+                <span
+                  class="material-symbols-outlined icon-arrow"
+                  aria-hidden="true"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="discarded-content">
+                <p class="discarded-intro">
+                  Critérios de segurança biomecânica e incompatibilidade técnica
+                  que eliminaram calçados antes da pontuação:
+                </p>
+                <ul id="discarded-list" class="discarded-list">
+                  <!-- Injetado dinamicamente via resultado.js -->
+                </ul>
+              </div>
+            </details>
+          </section>
 
           <!-- Ações Gerais -->
           <footer class="results-actions">

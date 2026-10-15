@@ -1,3 +1,9 @@
+/**
+ * CORRE+ — Renderizador de Resultados
+ * Apresenta o Top 3 de modelos recomendados, as justificativas personalizadas
+ * e os modelos descartados pelos critérios determinísticos.
+ */
+
 const DOM = {
   grid: document.getElementById("results-grid"),
   title: document.getElementById("results-title"),
@@ -22,6 +28,7 @@ function renderResults() {
         <a href="quiz.html" class="btn-card-details">FAZER ANÁLISE AGORA</a>
       </div>
     `;
+    renderDiscardedSection();
     return;
   }
 
@@ -45,7 +52,6 @@ function renderResults() {
         ? `comparacao.html?a=${shoe.id}&b=${top3[1].id}`
         : `comparacao.html?a=${top3[0].id}&b=${shoe.id}`;
 
-    // Imagem do tênis ou placeholder neutro caso não tenha
     const imageSrc = shoe.imagem || "../assets/shoes/placeholder.png";
 
     const card = document.createElement("article");
@@ -64,7 +70,7 @@ function renderResults() {
         <img 
           src="${imageSrc}" 
           alt="${shoe.marca} ${shoe.nome}" 
-          class="shoe-image"
+          class="shoe-image" 
           loading="lazy"
           onerror="this.style.opacity='0.2'"
         />
@@ -81,7 +87,14 @@ function renderResults() {
         <span class="spec-item">PLACA: <strong>${shoe.placa.toUpperCase()}</strong></span>
       </div>
 
-      <p class="result-description">${shoe.descricao_match}</p>
+      <!-- Bloco de Justificativa Determinística -->
+      <div class="result-reason-box">
+        <span class="reason-label">
+          <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+          POR QUE ESTE MODELO?
+        </span>
+        <p class="reason-text">${shoe.justificativaDinamica || shoe.descricao_match}</p>
+      </div>
 
       <footer class="card-actions-group">
         <a href="detalhes.html?id=${shoe.id}" class="btn-card-details">
@@ -96,6 +109,47 @@ function renderResults() {
     `;
 
     DOM.grid.appendChild(card);
+  });
+
+  // Renderiza a Zona de Descarte abaixo do Top 3
+  renderDiscardedSection();
+}
+
+function renderDiscardedSection() {
+  const countEl = document.getElementById("discarded-count");
+  const listEl = document.getElementById("discarded-list");
+  const sectionEl = document.querySelector(".discarded-section");
+
+  const storedDiscarded = sessionStorage.getItem("corre_discarded");
+  if (!storedDiscarded || !listEl || !countEl) {
+    if (sectionEl) sectionEl.style.display = "none";
+    return;
+  }
+
+  let discarded = [];
+  try {
+    discarded = JSON.parse(storedDiscarded);
+  } catch (e) {
+    console.error("Erro ao ler descartados:", e);
+    return;
+  }
+
+  if (discarded.length === 0) {
+    if (sectionEl) sectionEl.style.display = "none";
+    return;
+  }
+
+  countEl.textContent = discarded.length;
+  listEl.innerHTML = "";
+
+  discarded.forEach((item) => {
+    const li = document.createElement("li");
+    li.className = "discarded-item";
+    li.innerHTML = `
+      <strong class="discarded-shoe-name">${item.nome}</strong>
+      <span class="discarded-reason">MOTIVO DO DESCARTE: ${item.motivo}</span>
+    `;
+    listEl.appendChild(li);
   });
 }
 

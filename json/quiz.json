@@ -85,5 +85,26 @@
       },
       { "label": "Indiferente / Não tenho preferência", "valor": "indiferente" }
     ]
+  },
+  {
+    "id": "orcamento",
+    "numero": "07",
+    "titulo": "Qual é a sua faixa de investimento prevista?",
+    "descricao": "Filtro financeiro para encontrar o melhor custo-benefício para o seu momento.",
+    "opcoes": [
+      { "label": "Custo-Benefício (Até R$ 650)", "valor": "baixo" },
+      {
+        "label": "Intermediário / Super Trainers (Até R$ 1.350)",
+        "valor": "medio"
+      },
+      {
+        "label": "Alta Performance / Competição (Acima de R$ 1.350)",
+        "valor": "alto"
+      },
+      {
+        "label": "Sem preferência (Buscar a melhor compatibilidade técnica)",
+        "valor": "indiferente"
+      }
+    ]
   }
 ]

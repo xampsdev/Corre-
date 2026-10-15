@@ -254,6 +254,139 @@
   color: var(--primary);
 }
 
+/* Bloco de Justificativa Determinística - Explainable AI */
+.result-reason-box {
+  background-color: var(--surface);
+  border-left: 3px solid var(--primary);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-5);
+  flex-grow: 1;
+}
+
+.reason-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-data-label);
+  font-size: 0.75rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-2);
+}
+
+.reason-label .material-symbols-outlined {
+  font-size: 1rem;
+}
+
+.reason-text {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ==========================================
+   ZONA DE DESCARTE - RULE ENGINE TRANSPARENCY
+   ========================================== */
+
+.discarded-section {
+  margin-bottom: var(--space-7);
+}
+
+.discarded-accordion {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  /* Sem border-radius */
+}
+
+.discarded-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  font-family: var(--font-data-label);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+  list-style: none; /* Remove seta nativa do browser */
+  transition:
+    color var(--transition),
+    background-color var(--transition);
+}
+
+.discarded-summary::-webkit-details-marker {
+  display: none;
+}
+
+.discarded-summary:hover {
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+.discarded-summary .icon-filter {
+  color: var(--warning);
+  font-size: 1.25rem;
+}
+
+.discarded-summary .icon-arrow {
+  margin-left: auto;
+  transition: transform var(--transition);
+}
+
+.discarded-accordion[open] .icon-arrow {
+  transform: rotate(180deg);
+}
+
+.discarded-content {
+  padding: 0 var(--space-5) var(--space-5) var(--space-5);
+  border-top: 1px solid var(--border);
+}
+
+.discarded-intro {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  padding: var(--space-3) 0;
+  line-height: 1.5;
+}
+
+.discarded-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.discarded-item {
+  background-color: var(--surface);
+  border-left: 3px solid var(--error);
+  padding: var(--space-3) var(--space-4);
+}
+
+.discarded-shoe-name {
+  font-family: var(--font-title);
+  font-size: var(--fs-body);
+  color: var(--text);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.discarded-reason {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
 /* Layout Desktop em 3 Colunas */
 @media (min-width: 992px) {
   .results-main {
