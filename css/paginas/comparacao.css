@@ -1,75 +1,108 @@
 /* ==========================================
-   COMPARAÇÃO PAGE STYLES - CORRE+
+   COMPARAÇÃO PAGE STYLES - CORRE+ (RESPONSIVO DEFINITIVO)
+   Mobile First — Sem border-radius — Tokens nativos
    ========================================== */
 
+/* Layout Base */
 .compare-main {
   min-height: calc(100vh - 180px);
-  padding: var(--space-6) var(--spacing-margin-mobile);
+  padding: var(--space-5) var(--spacing-margin-mobile);
+  overflow-x: hidden; /* Evita que a página inteira balance na horizontal */
 }
 
 .compare-container {
+  width: 100%;
   max-width: var(--container);
   margin: 0 auto;
 }
 
 .compare-breadcrumbs {
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+.btn-back {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: color var(--transition);
+}
+
+.btn-back:hover {
+  color: var(--primary);
 }
 
 .compare-header {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
 }
 
 .compare-title {
   font-family: var(--font-title);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.75rem, 6vw, 3rem);
   color: var(--text);
   line-height: 1.1;
   text-transform: uppercase;
-  margin: var(--space-2) 0 var(--space-3);
+  margin: var(--space-2) 0;
 }
 
 .compare-subhead {
   font-family: var(--font-body);
-  font-size: var(--fs-body);
+  font-size: var(--fs-small);
   color: var(--text-muted);
-  max-width: 680px;
   line-height: 1.5;
+  max-width: 680px;
 }
 
-/* Barra de Seleção */
+/* ==========================================
+   BARRA DE SELEÇÃO DE MODELOS (MOBILE FIRST)
+   ========================================== */
 .compare-selectors-bar {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-4);
   background-color: var(--card);
   border: 1px solid var(--border);
-  padding: var(--space-5);
+  padding: var(--space-4);
   margin-bottom: var(--space-6);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .selector-field {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  width: 100%;
+  min-width: 0; /* Previne que o flex-item estoure a tela com textos longos */
 }
 
 .selector-label {
   font-family: var(--font-data-label);
-  font-size: var(--fs-small);
+  font-size: 0.75rem;
   color: var(--primary);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .compare-select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   font-family: var(--font-mono);
-  font-size: var(--fs-body);
+  font-size: var(--fs-small);
   color: var(--text);
   background-color: var(--surface);
   border: 1px solid var(--border);
   padding: var(--space-3) var(--space-4);
   cursor: pointer;
   outline: none;
+  text-overflow: ellipsis; /* Evita quebra feia de nomes compridos no mobile */
+  white-space: nowrap;
+  overflow: hidden;
   transition: border-color var(--transition);
   /* Sem border-radius */
 }
@@ -78,86 +111,106 @@
   border-color: var(--primary);
 }
 
-/* Matriz de Comparação */
+/* ==========================================
+   TABELA COMPARATIVA COM SCROLL HORIZONTAL NATIVO
+   ========================================== */
 .compare-matrix-wrapper {
+  width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Rolagem fluida no iOS (iPhone) */
   border: 1px solid var(--border);
   background-color: var(--card);
   box-shadow: var(--shadow-lg);
+  margin-bottom: var(--space-7);
+}
+
+/* Custom Scrollbar técnica */
+.compare-matrix-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.compare-matrix-wrapper::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+.compare-matrix-wrapper::-webkit-scrollbar-thumb {
+  background: var(--border-light);
 }
 
 .compare-table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  min-width: 600px;
+  min-width: 540px; /* Garante que a tabela não esmague os dados no mobile */
 }
 
 .compare-table th,
 .compare-table td {
-  padding: var(--space-4) var(--space-5);
+  padding: var(--space-3) var(--space-4);
   border: 1px solid var(--border);
+  vertical-align: middle;
 }
 
-/* Cabeçalho da Tabela com as Imagens dos Tênis */
-.compare-table thead th {
+/* Coluna 1: Rótulo da Métrica */
+.compare-table thead th:first-child,
+.metric-row-header {
+  width: 25%;
+  min-width: 120px;
+  background-color: var(--surface);
+  font-family: var(--font-data-label);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: normal;
+}
+
+/* Colunas dos Tênis */
+.compare-table thead th:not(:first-child) {
+  width: 37.5%;
   background-color: var(--surface);
   vertical-align: top;
-  width: 40%;
-}
-
-.compare-table thead th:first-child {
-  width: 20%;
-  font-family: var(--font-data-label);
-  font-size: var(--fs-small);
-  color: var(--text-muted);
+  padding: var(--space-4) var(--space-3);
 }
 
 .compare-card-preview {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
   text-align: center;
 }
 
 .compare-shoe-img {
-  max-width: 140px;
-  max-height: 90px;
+  width: 100%;
+  max-width: 120px;
+  height: 70px;
   object-fit: contain;
 }
 
 .compare-shoe-brand {
   font-family: var(--font-data-label);
-  font-size: var(--fs-small);
+  font-size: 0.7rem;
   color: var(--secondary);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
   display: block;
 }
 
 .compare-shoe-title {
   font-family: var(--font-title);
-  font-size: var(--fs-title);
+  font-size: 1.15rem;
   color: var(--text);
   text-transform: uppercase;
   line-height: 1.1;
-  margin-top: var(--space-1);
 }
 
-/* Linhas e Células */
-.metric-row-header {
-  font-family: var(--font-data-label);
-  font-size: var(--fs-small);
-  color: var(--text-muted);
-  text-transform: uppercase;
-  background-color: var(--surface);
-  white-space: nowrap;
-}
-
+/* Estilos das Células de Dados */
 .metric-cell {
   font-family: var(--font-mono);
-  font-size: var(--fs-body);
+  font-size: var(--fs-small);
   color: var(--text);
+  word-break: break-word;
 }
 
 .metric-highlight {
@@ -167,20 +220,21 @@
 
 .text-cell {
   font-family: var(--font-body);
-  font-size: var(--fs-small);
+  font-size: 0.8rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
-/* Ações ao fim de cada coluna */
+/* Botões no Rodapé da Tabela */
 .compare-table tfoot td {
   background-color: var(--surface);
   text-align: center;
+  padding: var(--space-3);
 }
 
 .btn-table-action {
   font-family: var(--font-title);
-  font-size: var(--fs-small);
+  font-size: 0.8rem;
   text-transform: uppercase;
   font-weight: 700;
   padding: var(--space-3) var(--space-4);
@@ -188,6 +242,9 @@
   color: var(--bg);
   text-decoration: none;
   display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
   transition: background-color var(--transition);
 }
 
@@ -195,13 +252,71 @@
   background-color: var(--primary-hover);
 }
 
-/* Desktop */
+/* ==========================================
+   BREAKPOINTS RESPONSIVOS (TABLET E DESKTOP)
+   ========================================== */
+
+/* A partir de 768px (Tablet e Telas Médias) */
 @media (min-width: 768px) {
+  .compare-main {
+    padding: var(--space-6) var(--spacing-margin-tablet);
+  }
+
+  .compare-subhead {
+    font-size: var(--fs-body);
+  }
+
+  /* Seletores lado a lado com segurança */
+  .compare-selectors-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+    padding: var(--space-5);
+  }
+
+  .compare-select {
+    font-size: var(--fs-body);
+  }
+
+  .compare-table {
+    min-width: 680px;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .compare-shoe-img {
+    max-width: 150px;
+    height: 90px;
+  }
+
+  .compare-shoe-title {
+    font-size: var(--fs-title);
+  }
+
+  .metric-cell {
+    font-size: var(--fs-body);
+  }
+
+  .text-cell {
+    font-size: var(--fs-small);
+  }
+}
+
+/* A partir de 992px (Desktop Completo) */
+@media (min-width: 992px) {
   .compare-main {
     padding: var(--space-8) var(--spacing-margin-desktop);
   }
 
-  .compare-selectors-bar {
-    grid-template-columns: 1fr 1fr;
+  .compare-table {
+    min-width: 100%; /* Ocupa 100% perfeitamente sem scroll em telas grandes */
+  }
+
+  .btn-table-action {
+    width: auto;
+    padding: var(--space-3) var(--space-6);
   }
 }

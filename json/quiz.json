@@ -71,19 +71,23 @@
   {
     "id": "drop",
     "numero": "06",
-    "titulo": "Qual sua preferência de Drop (diferença calcanhar/ponta)?",
-    "descricao": "Influencia diretamente no padrão de aterrissagem da pisada.",
+    "titulo": "Qual sua preferência de Drop?",
+    "descricao": "A inclinação da sola entre o calcanhar e a ponta do pé.",
+    "ajuda": "O Drop é simplesmente a diferença de altura entre o calcanhar e a parte da frente do pé. Drops altos (8 a 10mm+) agem como um leve 'salto' para quem aterrissa com o calcanhar. Drops baixos (0 a 4mm) deixam o pé reto no chão para uma passada mais natural. Se estiver na dúvida, escolha 'Indiferente'.",
     "opcoes": [
-      { "label": "Drop Baixo (0 a 4 mm - Foco em antepé)", "valor": "baixo" },
       {
-        "label": "Drop Padrão/Médio (6 a 10 mm - Mais versátil)",
+        "label": "Drop Baixo (0 a 4 mm - Sensação mais plana e natural)",
+        "valor": "baixo"
+      },
+      {
+        "label": "Drop Padrão/Médio (6 a 10 mm - Mais comum e versátil)",
         "valor": "medio"
       },
       {
-        "label": "Drop Alto (10 mm ou mais - Foco em calcanhar)",
+        "label": "Drop Alto (10 mm ou mais - Mais altura no calcanhar)",
         "valor": "alto"
       },
-      { "label": "Indiferente / Não tenho preferência", "valor": "indiferente" }
+      { "label": "Não sei / Indiferente para mim", "valor": "indiferente" }
     ]
   },
   {

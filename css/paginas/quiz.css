@@ -1,5 +1,6 @@
 /* ==========================================
    QUIZ PAGE STYLES - CORRE+
+   Mobile First — Sem border-radius — Tokens nativos
    ========================================== */
 
 .quiz-main-section {
@@ -80,8 +81,64 @@
   font-family: var(--font-body);
   font-size: var(--fs-small);
   color: var(--text-muted);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   line-height: 1.4;
+}
+
+/* Botão e Caixa de Ajuda / Glossário */
+.quiz-help-container {
+  margin-bottom: var(--space-5);
+}
+
+.btn-quiz-help {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: transparent;
+  border: 1px dashed var(--secondary);
+  color: var(--secondary);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.btn-quiz-help:hover {
+  background-color: var(--surface);
+}
+
+.btn-quiz-help .material-symbols-outlined {
+  font-size: 1rem;
+}
+
+.quiz-help-box {
+  background-color: var(--surface);
+  border-left: 3px solid var(--secondary);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-4);
+  margin-top: var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--text);
+  line-height: 1.5;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Opções de Resposta */

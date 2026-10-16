@@ -1,6 +1,6 @@
 /**
  * CORRE+ — Quiz & Rule Engine
- * Gerencia o fluxo de perguntas, coleta os inputs do usuário,
+ * Gerencia o fluxo de perguntas, botão de ajuda contextual,
  * elimina modelos incompatíveis e calcula o Match Score com justificativas determinísticas.
  */
 
@@ -12,6 +12,7 @@ const DOM = {
   subtitle: document.getElementById("question-subtitle"),
   optionsGroup: document.getElementById("quiz-options-group"),
   btnPrev: document.getElementById("btn-quiz-prev"),
+  card: document.getElementById("question-card"),
 };
 
 let questions = [];
@@ -64,6 +65,42 @@ function renderCurrentQuestion() {
   DOM.btnPrev.disabled = currentStep === 0;
   DOM.optionsGroup.innerHTML = "";
 
+  // Remove qualquer caixa de ajuda anterior
+  const existingHelp = document.querySelector(".quiz-help-container");
+  if (existingHelp) {
+    existingHelp.remove();
+  }
+
+  // Se a pergunta possui texto de ajuda (ex: Drop), insere o botão contextual
+  if (q.ajuda) {
+    const helpContainer = document.createElement("div");
+    helpContainer.className = "quiz-help-container";
+
+    helpContainer.innerHTML = `
+      <button type="button" class="btn-quiz-help" id="btn-toggle-help">
+        <span class="material-symbols-outlined" aria-hidden="true">help</span>
+        O QUE SIGNIFICA ISSO?
+      </button>
+      <div class="quiz-help-box" id="quiz-help-box" hidden>
+        ${q.ajuda}
+      </div>
+    `;
+
+    // Insere logo abaixo da descrição e antes das opções
+    DOM.subtitle.insertAdjacentElement("afterend", helpContainer);
+
+    const toggleBtn = helpContainer.querySelector("#btn-toggle-help");
+    const helpBox = helpContainer.querySelector("#quiz-help-box");
+
+    toggleBtn.addEventListener("click", () => {
+      const isHidden = helpBox.hidden;
+      helpBox.hidden = !isHidden;
+      toggleBtn.innerHTML = isHidden
+        ? '<span class="material-symbols-outlined" aria-hidden="true">close</span> FECHAR EXPLICAÇÃO'
+        : '<span class="material-symbols-outlined" aria-hidden="true">help</span> O QUE SIGNIFICA ISSO?';
+    });
+  }
+
   q.opcoes.forEach((opcao) => {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -101,6 +138,10 @@ async function finishQuizAndCalculate() {
     "Eliminando incompatibilidades financeiras e calculando Match Scores.";
   DOM.optionsGroup.innerHTML = "";
   DOM.btnPrev.disabled = true;
+
+  // Remove caixa de ajuda se houver
+  const existingHelp = document.querySelector(".quiz-help-container");
+  if (existingHelp) existingHelp.remove();
 
   try {
     const pathsToTry = [
